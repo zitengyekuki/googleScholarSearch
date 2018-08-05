@@ -7,6 +7,7 @@ import time
 import xlrd
 import xlwt
 from xlutils.copy import copy
+import random
 
 time_stamp = str(int(time.time()))
 RESULT_FILE_NAME = 'result_'+time_stamp+'.xls'
@@ -40,7 +41,13 @@ def get_info(last_name, first_name):
     driver = webdriver.Chrome('./chromedriver')
     driver.maximize_window()
     name = last_name + '+' + first_name
-    url = 'https://x.zhoupen.cn/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+''
+    url = ['https://x.zhoupen.cn/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'',
+           'https://e.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG=',
+           'https://xs.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&oq=',
+           'https://c.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG=',
+           'https://a.beijingbang.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG='
+           ]
+    url = random.choice(url)
     print url
     driver.set_page_load_timeout(10)
     try:
@@ -48,6 +55,18 @@ def get_info(last_name, first_name):
     except:
         print 'continue'
     try:
+        # try:
+        #     is_recaptcha = driver.find_element_by_id('recaptcha')
+        #     if is_recaptcha:
+        #         button = driver.find_element_by_xpath('/html/body/div[1]/form/input[3]')
+        #         button.click()
+        #         button_2 = driver.find_element_by_xpath('/html/body/p[1]/b/a')
+        #         button_2.click()
+        #         driver.close()
+        #         get_info(last_name, first_name)
+        #         print 're_direct----'
+        # except:
+        #     pass
         profile = driver.find_element_by_xpath('//*[@id="gs_res_ccl_mid"]/div[1]/table')
         if len(profile.find_elements_by_tag_name('div')) > 2:
             try:
