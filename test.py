@@ -38,8 +38,7 @@ def read(path):
 
 
 def get_info(last_name, first_name):
-    driver = webdriver.Chrome('./chromedriver')
-    driver.maximize_window()
+    driver = webdriver.Chrome('./chromedriver_win32/chromedriver')
     name = last_name + '+' + first_name
     url = ['https://x.zhoupen.cn/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'',
            'https://e.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG=',
