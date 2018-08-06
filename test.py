@@ -38,10 +38,11 @@ def read(path):
 
 
 def get_info(last_name, first_name):
-    driver = webdriver.Chrome('./chromedriver_win32/chromedriver')
+    # driver = webdriver.Chrome('./chromedriver_win32/chromedriver')
+    driver = webdriver.Chrome('./chromedriver')
     name = last_name + '+' + first_name
     url = ['https://x.zhoupen.cn/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'',
-           'https://e.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG=',
+           # 'https://e.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG=',
            'https://xs.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&oq=',
            'https://c.glgooo.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG=',
            'https://a.beijingbang.top/scholar?hl=zh-CN&as_sdt=0%2C5&q='+name+'&btnG='
